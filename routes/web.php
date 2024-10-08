@@ -1,19 +1,73 @@
 <?php
 
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AuthController;
 
+
+/*  ----- PAGE ROUTES ----- */
 /* --- HOME PAGE     --- */
 // @desc: Show the home page
 // @route: GET '/'
-Route::get('/', [PageController::class, 'home'])->name('pages.home');
+Route::get('/', [PageController::class, 'home'])->name('home');
+
+/* --- DASHBOARD PAGE     --- */
+// @desc: Show the dashboard page
+// @route: GET '/dashboard'
+Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 
+
+/*  ----- RESOURCE ROUTES ----- */
 /* --- JOBS RESOURCE --- */
 // @desc: Manage the Jobs resource
-Route::resource('jobs', JobController::class);
+// Route::resource('jobs', JobController::class);
+Route::resource('jobs', JobController::class)->middleware('auth')->only(['create', 'store', 'edit', 'update', 'destroy']);
+Route::resource('jobs', JobController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
 
+
+
+
+/* --- APPLICATION SUBMISSION --- */
+Route::post('/jobs/{job}/apply', [ApplicantController::class, 'store'])->name('applicant.store')->middleware('auth');
+Route::delete('/applicants/{applicant}', [ApplicantController::class, 'destroy'])->name('applicant.destroy')->middleware('auth');
+
+
+
+
+
+
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+
+/* --- BOOKMARKS RESOURCE --- */
+// @desc: Show the bookmarks page
+// @route: GET '/bookmarks'
+Route::middleware('auth')->group(function () {
+  Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
+  Route::post('/bookmarks/{job}', [BookmarkController::class, 'store'])->name('bookmarks.store');
+  Route::delete('/bookmarks/{job}', [BookmarkController::class, 'destroy'])->name('bookmarks.destroy');
+});
+
+
+/* ----- AUTHENTICATION ROUTES ----- */
+Route::middleware('guest')->group(function () {
+  // @desc: View the Login page
+  Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+  // @desc: Authenticate the user
+  Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+
+  // @desc: View the Register page
+  Route::get('/register', [AuthController::class, 'register'])->name('register');
+  // @desc: Store user data in the database
+  Route::post('/register', [AuthController::class, 'store'])->name('store');
+});
+
+// @desc: Log out the user
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 

@@ -63,7 +63,7 @@ Now one of my reasons for using a nav link component is so we don't have to pass
 Open the `nav-link.blade.php` file and update it as follows:
 
 ```php
-<a {{$attributes}} class="text-white hover:underline py-2 {{ request()->is('/') ? 'text-yellow-400 font-bold' : '' }}">
+<a {{$attributes}} class="text-white hover:underline py-2 {{ request()->is('/') ? 'text-pumpkin-550 font-bold' : '' }}">
     {{$slot}}
 </a>
 ```
@@ -79,7 +79,7 @@ We need to define any custom props using the `@props` directive at the top of th
 ```php
 @props(['active'])
 
-<a {{$attributes}} class="text-white hover:underline py-2 {{ request()->is('/') ? 'text-yellow-400 font-bold' : '' }}">
+<a {{$attributes}} class="text-white hover:underline py-2 {{ request()->is('/') ? 'text-pumpkin-550 font-bold' : '' }}">
     {{$slot}}
 </a>
 ```
@@ -94,10 +94,10 @@ We can also give it a default value. Let's set the default value of `active` to 
 @props(['active' => false])
 ```
 
-Now, let's check for the `active` prop and add the `font-bold` and `text-yellow-400` classes if it is true. Update the `a` tag as follows:
+Now, let's check for the `active` prop and add the `font-bold` and `text-pumpkin-550` classes if it is true. Update the `a` tag as follows:
 
 ```php
-<a {{$attributes}} class="text-white hover:underline py-2 {{ $active ? 'text-yellow-400 font-bold' : '' }}">
+<a {{$attributes}} class="text-white hover:underline py-2 {{ $active ? 'text-pumpkin-550 font-bold' : '' }}">
     {{$slot}}
 </a>
 ```
@@ -137,7 +137,7 @@ Update the `@props` directive as follows:
 Now edit the `a` tag to use the `url` prop:
 
 ```php
-<a href="{{ $url }}" class="text-white hover:underline py-2 {{ $active ? 'text-yellow-400 font-bold' : '' }}">
+<a href="{{ $url }}" class="text-white hover:underline py-2 {{ $active ? 'text-pumpkin-550 font-bold' : '' }}">
     {{$slot}}
 </a>
 ```
@@ -161,12 +161,7 @@ Let's leave the create job link along because we are going to have a separate co
 Open the `views/layout.blade.php` file and let's cut the `<i class='fa fa-gauge'></i>`.Now paste it in the `views/components/nav-link.blade.php` file right before the `{{ $slot }}`:
 
 ```html
-<a
-  href="{{ $url }}"
-  class="text-white hover:underline py-2 {{ $active ? 'text-yellow-400 font-bold' : '' }}"
->
-  <i class="fa fa-gauge mr-1"></i> {{$slot}}
-</a>
+<a href="{{ $url }}" class="text-white hover:underline py-2 {{ $active ? 'text-pumpkin-550 font-bold' : '' }}"> <i class="fa fa-gauge mr-1"></i> {{$slot}} </a>
 ```
 
 Let's add a new prop at the top of the `views/components/nav-link.blade.php` file:
@@ -178,13 +173,10 @@ Let's add a new prop at the top of the `views/components/nav-link.blade.php` fil
 We set the default value of the `icon` prop to `null`. Now replace the `<i class='fa fa-gauge'></i>` with the following code:
 
 ```html
-<a
-  href="{{ $url }}"
-  class="text-white hover:underline py-2 {{ $active ? 'text-yellow-400 font-bold' : '' }}"
->
-  @if($icon)
-  <i class="fa fa-{{ $icon }} mr-1"></i>
-  @endif {{$slot}}
+<a href="{{ $url }}" class="text-white hover:underline py-2 {{ $active ? 'text-pumpkin-550 font-bold' : '' }}">
+	@if($icon)
+	<i class="fa fa-{{ $icon }} mr-1"></i>
+	@endif {{$slot}}
 </a>
 ```
 
@@ -193,9 +185,7 @@ Now you can pass in an icon prop to the `nav-link` component. Let's test it out.
 Open the `views/header.blade.php` file and add the gauge icon to the dashboard link:
 
 ```html
-<x-nav-link url="/dashboard" :active="request()->is('dashboard')" icon="gauge"
-  >Dashboard</x-nav-link
->
+<x-nav-link url="/dashboard" :active="request()->is('dashboard')" icon="gauge">Dashboard</x-nav-link>
 ```
 
 Now you should see the gauge icon next to the dashboard link.

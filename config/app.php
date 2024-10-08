@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Workopia'),
+    'name' => env('APP_NAME', 'workscout'),
     'creator' => env('APP_CREATOR', 'Yvan jr Blanchette'),
     'creator_url' => env('APP_CREATOR_WEBSITE', 'https://yvanblanchette.com'),
     'description' => env('APP_DESCRIPTION', 'Find ans list jobs'),

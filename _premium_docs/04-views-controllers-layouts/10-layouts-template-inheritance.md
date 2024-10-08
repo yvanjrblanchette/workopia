@@ -13,16 +13,16 @@ Let's create a layout that we can use to wrap around our views. Create a file at
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workopia | Find and list jobs</title>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>workscout | Find and list jobs</title>
+	</head>
 
-  <body class="bg-gray-100">
-    <h1>My App</h1>
-    <main class="container mx-auto p-4 mt-4">@yield('content')</main>
-  </body>
+	<body class="bg-gray-100">
+		<h1>My App</h1>
+		<main class="container mx-auto p-4 mt-4">@yield('content')</main>
+	</body>
 </html>
 ```
 
@@ -53,7 +53,7 @@ Do the same for the `pages/home.blade.php` file:
 
 ```html
 @extends('layout') @section('content')
-<h1>Welcome to Workopia</h1>
+<h1>Welcome to workscout</h1>
 <p>Find your dream job today</p>
 @endsection
 ```
@@ -64,10 +64,10 @@ Do the same for the `jobs/create.blade.php` file:
 @extends('layout') @section('content')
 <h1>Create Job</h1>
 <form action="/jobs" method="POST">
-  @csrf
-  <input type="text" name="title" placeholder="Title" />
-  <input type="text" name="description" placeholder="Description" />
-  <button type="submit">Submit</button>
+	@csrf
+	<input type="text" name="title" placeholder="Title" />
+	<input type="text" name="description" placeholder="Description" />
+	<button type="submit">Submit</button>
 </form>
 @endsection
 ```
@@ -79,7 +79,7 @@ You should see the `<h1>My App</h1>` tag on all 3 pages. This is because we are 
 Let's add another `@yield` directive for the title in the layout. Open the `layout.blade.php` file and update it like this:
 
 ```html
-<title>@yield('title', 'Workopia | Find or List a Job')</title>
+<title>@yield('title', 'workscout | Find or List a Job')</title>
 ```
 
 Here we are using the `@yield` directive to define a default title for the layout. If a child view does not override this section, the default title will be used.

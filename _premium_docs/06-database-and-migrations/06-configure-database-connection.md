@@ -1,6 +1,6 @@
 # Configure Database Connection
 
-We now have PostgreSQL installed and we have a brand new database and user called workopia. We are going to configure our Laravel application to use this database.
+We now have PostgreSQL installed and we have a brand new database and user called workscout. We are going to configure our Laravel application to use this database.
 
 Open the `.env` file in the root of your Laravel project. This file contains environment variables that are used to configure your application. You will see a bunch of variables that are used to configure your application. We are interested in the database configuration.
 
@@ -8,8 +8,8 @@ Open the `.env` file in the root of your Laravel project. This file contains env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
-DB_DATABASE=workopia
-DB_USERNAME=workopia
+DB_DATABASE=workscout
+DB_USERNAME=workscout
 DB_PASSWORD=password
 ```
 

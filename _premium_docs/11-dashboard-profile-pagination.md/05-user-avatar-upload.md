@@ -13,7 +13,7 @@ php artisan make:migration add_avatar_to_users_table --table=users
 Open the migration file and add the following code to the `up` method:
 
 ```php
-Schema::table('users', function (Blueprint $table) {
+Schema::table('users', function (blueprint $table) {
     $table->string('avatar')->nullable()->after('email');
 });
 ```
@@ -21,7 +21,7 @@ Schema::table('users', function (Blueprint $table) {
 Add the following code to the `down` method:
 
 ```php
-Schema::table('users', function (Blueprint $table) {
+Schema::table('users', function (blueprint $table) {
     $table->dropColumn('avatar');
 });
 ```
@@ -51,13 +51,8 @@ Open the `resources/views/dashboard/show.blade.php` file and add the following c
 
 ```html
 <div class="mb-4">
-  <label class="block text-gray-700" for="avatar">Profile Avatar</label>
-  <input
-    id="avatar"
-    type="file"
-    name="avatar"
-    class="w-full px-4 py-2 border rounded focus:outline-none"
-  />
+	<label class="block text-gray-700" for="avatar">Profile Avatar</label>
+	<input id="avatar" type="file" name="avatar" class="w-full px-4 py-2 border rounded focus:outline-none" />
 </div>
 ```
 
@@ -68,11 +63,7 @@ Let's add a preview of the avatar. Add the following right under the `h3` tag at
 ```html
 @if($user->avatar)
 <div class="mt-2 flex justify-center">
-  <img
-    src="{{ asset('storage/' . $user->avatar) }}"
-    alt="Avatar"
-    class="w-32 h-32 object-cover rounded-full"
-  />
+	<img src="{{ asset('storage/' . $user->avatar) }}" alt="Avatar" class="w-32 h-32 object-cover rounded-full" />
 </div>
 @endif
 ```

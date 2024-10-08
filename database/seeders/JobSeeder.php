@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class JobSeeder extends Seeder
 {
@@ -17,21 +16,17 @@ class JobSeeder extends Seeder
         // Load job listings from file
         $jobListings = include database_path('seeders/data/job_listings.php');
 
-
-        // Get all other user ids from user model
-        $userIds = User::where('email', '!=', 'test@test.com')->pluck('id')->toArray();
-
-        foreach ($jobListings as $index => &$listing) {
-            // Assign user id to listing
-            $listing['user_id'] = $userIds[array_rand($userIds)];
-
+        foreach ($jobListings as &$listing) {
             // Add timestamps
             $listing['created_at'] = now();
             $listing['updated_at'] = now();
         }
 
-        // Insert job listings
-        DB::table('job_listings')->insert($jobListings);
-        echo 'Jobs created successfully!';
+        try {
+            // Insert job listings
+            DB::table('job_listings')->insert($jobListings);
+        } catch (\Exception $e) {
+            Log::error('Failed to create jobs: ' . $e->getMessage()); // Log the error
+        }
     }
 }

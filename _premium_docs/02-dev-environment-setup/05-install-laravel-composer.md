@@ -8,7 +8,7 @@ Composer is a package or a dependency manager for PHP. Just about every language
 
 ## Installing Composer
 
-You can visit the official website for Composer at https://getcomposer.org. Depending on your OS, there are different ways to install Composer. 
+You can visit the official website for Composer at https://getcomposer.org. Depending on your OS, there are different ways to install Composer.
 
 ## Mac Install
 
@@ -59,15 +59,15 @@ Composer is now installed.
 To install Laravel, open your terminal in the folder that you want to setup your project in and run the following:
 
 ```bash
-composer create-project laravel/laravel workopia
+composer create-project laravel/laravel workscout
 ```
 
-This will create a new Laravel project in a folder called `workopia`.
+This will create a new Laravel project in a folder called `workscout`.
 
 Now navigate to the project folder:
 
 ```bash
-cd workopia
+cd workscout
 ```
 
 Open VS Code:
@@ -77,6 +77,7 @@ code .
 ```
 
 I
+
 ## Artisan
 
 Laravel comes with an amazing command-line tool called Artisan. You can use Artisan to run commands to help you with your Laravel project. You can use it to create models, controllers, migrations, etc. You can also use it to run your Laravel project locally.
@@ -102,4 +103,3 @@ This will start a local server at `http://localhost:8000`. You can now visit tha
 <img src='../images/landing.png' alt='Laravel landing page' />
 
 We now have Laravel setup and our project running. In the next lesson, we'll take a look at the Laravel folder structure.
-

@@ -69,7 +69,7 @@ This method defines a `hasMany` relationship between the `User` model and the `J
 Now that we have defined the relationship between the `JobListing` and `User` models, we need to update the `job_listings` table migration to add a `user_id` column. Add the following code to the `up` method of the migration:
 
 ```php
- Schema::table('job_listings', function (Blueprint $table) {
+ Schema::table('job_listings', function (blueprint $table) {
     // Add this line
     $table->unsignedBigInteger('user_id')->after('id');
     //...
@@ -80,7 +80,7 @@ We are specifying a new field called `user_id` that is an unsigned big integer w
 Next, we need to add a foreign key constraint to the `user_id` column. Add the following code at the bottom of the `up` method:
 
 ```php
-Schema::table('job_listings', function (Blueprint $table) {
+Schema::table('job_listings', function (blueprint $table) {
   // ...
 
   // Adding a foreign key constraint
@@ -95,7 +95,7 @@ Finally, we need to update the `down` method of the migration to remove the `use
 ```php
  public function down(): void
 {
-  Schema::table('job_listings', function (Blueprint $table) {
+  Schema::table('job_listings', function (blueprint $table) {
       // Drop foreign key constraint and user_id column
       $table->dropForeign(['user_id']);
       $table->dropColumn('user_id');

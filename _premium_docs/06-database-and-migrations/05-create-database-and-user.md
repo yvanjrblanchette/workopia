@@ -4,11 +4,11 @@ We are going to create a database and user for our application. I am going to sh
 
 You should have a server in PG Admin from the last lesson. Now we are going to create a new user and database.
 
-Right click on "Login/Groups" and select "Create" and then "Login/Group Roles". I will call this login "workopia". Under the "Definition" tab, enter a password. Under the "Privileges" tab, select all of the options. This will make the user a superuser. Click on save.
+Right click on "Login/Groups" and select "Create" and then "Login/Group Roles". I will call this login "workscout". Under the "Definition" tab, enter a password. Under the "Privileges" tab, select all of the options. This will make the user a superuser. Click on save.
 
-Right click on "Databases" and select "Create" and then "Database". I will call this database "workopia". Under the "Definition" tab, select the owner as "workopia". Click on save.
+Right click on "Databases" and select "Create" and then "Database". I will call this database "workscout". Under the "Definition" tab, select the owner as "workscout". Click on save.
 
-Now you have a database and user called workopia. You could add tables and stuff from here, but we aren't going to do that. We are going to use migrations to create and manage our database.
+Now you have a database and user called workscout. You could add tables and stuff from here, but we aren't going to do that. We are going to use migrations to create and manage our database.
 
 ## Using the Command Line
 
@@ -29,11 +29,11 @@ Note: If you are using Windows, you may need to add the path to the `psql` execu
 This will open up the PostgreSQL command line interface. You can now run the following commands:
 
 ```sql
-CREATE DATABASE workopia;
+CREATE DATABASE workscout;
 
-CREATE USER workopia WITH SUPERUSER PASSWORD 'your_password';
+CREATE USER workscout WITH SUPERUSER PASSWORD 'your_password';
 
-GRANT ALL PRIVILEGES ON DATABASE workopia TO workopia;
+GRANT ALL PRIVILEGES ON DATABASE workscout TO workscout;
 
 -- List all databases
 \l

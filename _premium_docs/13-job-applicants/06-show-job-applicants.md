@@ -27,31 +27,23 @@ We added `with('applicants')` to the `get()` method to get the applicants for ea
 
 Now in the `resources/views/dashboard/show.blade.php` file, we need to add the following code in the job listings just above the `@empty`:
 
-
 ```html
 {{-- Applicants --}}
 <div class="mt-4">
-  <h4 class="text-lg font-semibold mb-2">Applicants</h4>
-  @forelse($job->applicants as $applicant)
-  <div class="py-2">
-    <p class="text-gray-800">
-      <strong>Name: </strong> {{$applicant->full_name}}
-    </p>
-    <p class="text-gray-800">
-      <strong>Phone: </strong> {{$applicant->contact_phone}}
-    </p>
-    <p class="text-gray-800">
-      <strong>Email: </strong> {{$applicant->contact_email}}
-    </p>
-    <p class="text-gray-800">
-      <strong>Message: </strong> {{$applicant->message}}
-    </p>
-    <p class="text-gray-800 my-4">
-      <a href="{{asset('storage/' . $applicant->resume_path)}}" class="text-blue-500 hover:underline" download>
-        <i class="fas fa-download"></i> Downoad Resume
-      </a>
-    </p>
-  </div>
+	<h4 class="text-lg font-semibold mb-2">Applicants</h4>
+	@forelse($job->applicants as $applicant)
+	<div class="py-2">
+		<p class="text-gray-800"><strong>Name: </strong> {{$applicant->full_name}}</p>
+		<p class="text-gray-800"><strong>Phone: </strong> {{$applicant->contact_phone}}</p>
+		<p class="text-gray-800"><strong>Email: </strong> {{$applicant->contact_email}}</p>
+		<p class="text-gray-800"><strong>Message: </strong> {{$applicant->message}}</p>
+		<p class="text-gray-800 my-4">
+			<a href="{{asset('storage/' . $applicant->resume_path)}}" class="text-marine-500 hover:underline" download>
+				<i class="fas fa-download"></i> Downoad Resume
+			</a>
+		</p>
+	</div>
+</div>
 ```
 
 It will show the fields as well as a download link for the resume.

@@ -2,7 +2,6 @@
 
 Now, we want to be able to remove the bookmarks. The heavy lifting is done. We already have the button submitting to the `destroys` route. We just need to add the functionality to remove the bookmark.
 
-
 ## Delete Bookmark Route
 
 Open the routes file and add the delete route in the group:
@@ -46,35 +45,24 @@ We want to show a remove link/form if the user already has the job bookmarked. A
 ```html
 <!-- Bookmark Button -->
 @guest
-<p
-  class="mt-10 bg-gray-200 text-gray-700 font-bold w-full py-2 px-4 rounded-full text-center"
->
-  <i class="fas fa-info-circle mr-3"></i> You must be logged in to bookmark this
-  job.
+<p class="mt-10 bg-gray-200 text-gray-700 font-bold w-full py-2 px-4 rounded-full text-center">
+	<i class="fas fa-info-circle mr-3"></i> You must be logged in to bookmark this job.
 </p>
 @else
 <form
-  action="{{ auth()->user()->bookmarkedJobs()->where('job_id', $job->id)->exists() ? route('bookmarks.destroy', $job->id) : route('bookmarks.store', $job->id) }}"
-  method="POST"
-  class="mt-10"
+	action="{{ auth()->user()->bookmarkedJobs()->where('job_id', $job->id)->exists() ? route('bookmarks.destroy', $job->id) : route('bookmarks.store', $job->id) }}"
+	method="POST"
+	class="mt-10"
 >
-  @csrf 
-  @if (auth()->user()->bookmarkedJobs()->where('job_id', $job->id)->exists()) 
-    @method('DELETE')
-    <button
-      type="submit"
-      class="bg-red-500 hover:bg-red-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center"
-    >
-      <i class="fas fa-bookmark mr-3"></i> Remove Bookmark
-    </button>
-  @else
-    <button
-      type="submit"
-      class="bg-blue-500 hover:bg-blue-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center"
-    >
-      <i class="fas fa-bookmark mr-3"></i> Bookmark Listing
-    </button>
-  @endif
+	@csrf @if (auth()->user()->bookmarkedJobs()->where('job_id', $job->id)->exists()) @method('DELETE')
+	<button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center">
+		<i class="fas fa-bookmark mr-3"></i> Remove Bookmark
+	</button>
+	@else
+	<button type="submit" class="bg-marine-500 hover:bg-marine-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center">
+		<i class="fas fa-bookmark mr-3"></i> Bookmark Listing
+	</button>
+	@endif
 </form>
 @endguest
 ```

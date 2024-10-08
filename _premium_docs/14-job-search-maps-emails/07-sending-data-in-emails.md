@@ -43,11 +43,11 @@ Change the view to the following:
 <html>
 
 <head>
-  <title>Workopia Job Application</title>
+  <title>workscout Job Application</title>
 </head>
 
 <body>
-  <p>There has been a new job application to your Workopia listing</p>
+  <p>There has been a new job application to your workscout listing</p>
 
   <p><strong>Job Title:</strong> {{ $job->title }}</p>
 
@@ -59,7 +59,7 @@ Change the view to the following:
   <p><strong>Message:</strong> {{ $application->message }}</p>
   <p><strong>Location:</strong> {{ $application->location }}</p>
 
-   <p>Log in to your Workopia account to view the application</p>
+   <p>Log in to your workscout account to view the application</p>
 </body>
 
 </html>

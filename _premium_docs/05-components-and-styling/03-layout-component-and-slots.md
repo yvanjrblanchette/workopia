@@ -13,16 +13,16 @@ Add the following to `resources/views/components/layout.blade.php`:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workopia</title>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>workscout</title>
+	</head>
 
-  <body class="bg-gray-100">
-    <x-header />
-    <main class="container mx-auto p-4 mt-4">{{ $slot }}</main>
-  </body>
+	<body class="bg-gray-100">
+		<x-header />
+		<main class="container mx-auto p-4 mt-4">{{ $slot }}</main>
+	</body>
 </html>
 ```
 
@@ -36,13 +36,13 @@ Here is the new code for `index.blade.php`:
 
 ```html
 <x-layout>
-  <ul>
-    @forelse($jobs as $job)
-    <li>{{ $job }}</li>
-    @empty
-    <li>No jobs found</li>
-    @endforelse
-  </ul>
+	<ul>
+		@forelse($jobs as $job)
+		<li>{{ $job }}</li>
+		@empty
+		<li>No jobs found</li>
+		@endforelse
+	</ul>
 </x-layout>
 ```
 
@@ -52,21 +52,21 @@ Now update the `home.blade.php` and `create.blade.php` files with the following 
 
 ```html
 <x-layout>
-  <h1>Welcome to Workopia</h1>
-  <p>Find your dream job today</p>
+	<h1>Welcome to workscout</h1>
+	<p>Find your dream job today</p>
 </x-layout>
 ```
 
 ```html
 <x-layout>
-  <x-slot name="title"> Create Job </x-slot>
-  <h1>Create Job</h1>
-  <form action="/jobs" method="POST">
-    @csrf
-    <input type="text" name="title" placeholder="Title" />
-    <input type="text" name="description" placeholder="Description" />
-    <button type="submit">Submit</button>
-  </form>
+	<x-slot name="title"> Create Job </x-slot>
+	<h1>Create Job</h1>
+	<form action="/jobs" method="POST">
+		@csrf
+		<input type="text" name="title" placeholder="Title" />
+		<input type="text" name="description" placeholder="Description" />
+		<button type="submit">Submit</button>
+	</form>
 </x-layout>
 ```
 
@@ -102,7 +102,5 @@ Now it should work as expected.
 ## Favicon
 
 I have attached a download for a favicon that you can use for the project. You can download it from the resources section of this lesson. With Laravel, you simply add the file to the `public` folder and do a hard refresh of the browser to see the changes. Of course, if you want to use your own favicon, you can do that as well.
-
-
 
 haha No problem at all. No time requirements to be a mod. That David guy is 100% insane. I had to block him. He used the code from my old PHP course as a base for Trongate. Which is fine. I said that's great. But then when I said I wouldn't promote it on my channel he acted like I stabbed him in the back. Very strange guy. Like seriously, I think he is mentally ill.

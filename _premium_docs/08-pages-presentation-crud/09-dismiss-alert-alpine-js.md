@@ -7,10 +7,7 @@ We are going to make it so we the alert goes away after a few seconds. Since thi
 There are a few ways to use Alpine JS. We can install it via npm or yarn, but we can also use a CDN. We are going to use the CDN. This makes things much easier. Open the `resources/views/components/layout.blade.php` file and add the following code to the `<head>` tag:
 
 ```html
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 ```
 
 ## Alpine Directives
@@ -35,16 +32,16 @@ Just to show you what we would need to do if we were using Vanilla JS, we can ad
 
 ```js
 document.querySelectorAll('[id$="-alert"]').forEach(function (alert) {
-  // Get the duration from the data attribute
-  const duration = parseInt(alert.getAttribute('data-duration'), 10);
+	// Get the duration from the data attribute
+	const duration = parseInt(alert.getAttribute("data-duration"), 10);
 
-  // Set a timeout to remove the alert after the specified duration
-  setTimeout(function () {
-    alert.style.opacity = 0;
-    setTimeout(function () {
-      alert.remove();
-    }, 600); // Match this duration with your CSS transition time
-  }, duration);
+	// Set a timeout to remove the alert after the specified duration
+	setTimeout(function () {
+		alert.style.opacity = 0;
+		setTimeout(function () {
+			alert.remove();
+		}, 600); // Match this duration with your CSS transition time
+	}, duration);
 });
 ```
 
@@ -59,14 +56,14 @@ We have our hamburger menu working with vanilla JS, but we can use Alpine JS to 
 First, we need to add an "open" state. This has to be on a parent of the button and menu. So let's add it to the `<header>` element and set it to false:
 
 ```html
-<header class="bg-blue-900 text-white p-4" x-data="{ open: false }">...</header>
+<header class="bg-marine-700 text-white p-4" x-data="{ open: false }">...</header>
 ```
 
 Next, let's have the hamburger menu button toggle the open state. We can do this by adding the following code to the button:
 
 ```html
 <button @click="open = !open" class="text-white md:hidden flex items-center">
-  <i class="fa fa-bars text-2xl"></i>
+	<i class="fa fa-bars text-2xl"></i>
 </button>
 ```
 
@@ -75,11 +72,7 @@ I removed the id of `hamburger`. We don't need it anymore. We are using the `@cl
 Finally, we need to show the menu if `open` is `true`. We can do this by adding the following code to the `<nav>` element:
 
 ```html
-<nav
-  x-show="open"
-  @click.away="open = false"
-  class="md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
-></nav>
+<nav x-show="open" @click.away="open = false" class="md:hidden bg-marine-700 text-white mt-5 pb-4 space-y-2"></nav>
 ```
 
 I removed the class of `hidden`. We don't need it anymore. We are using the `x-show` directive to show the menu if `open` is `true`. We are using the `@click.away` directive to close the menu if the user clicks away from it.

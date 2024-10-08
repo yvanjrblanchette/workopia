@@ -10,9 +10,9 @@ Laravel comes with a few default migrations that are used to create the tables t
 
 The files that you see may differ depending on the version of Laravel that you are using. I am using Laravel 11 and I see the following 3 files:
 
-- 0001_01_01_000000_create_users_table.php 
-- 0001_01_01_000001_create_cache_table.php 
-- 0001_01_01_000002_create_jobs_table.php 
+- 0001_01_01_000000_create_users_table.php
+- 0001_01_01_000001_create_cache_table.php
+- 0001_01_01_000002_create_jobs_table.php
 
 These files are used to create the tables that are needed for users/authentication, caching and background jobs or tasks. You can see that the file names are prefixed with a timestamp. This is to ensure that the files are run in the correct order. The timestamp is in the format of `YYYY_MM_DD_HHMMSS`. This is the order that the files will be run in.
 
@@ -27,7 +27,7 @@ The `create` method takes a name and a closure. The closure is used to define th
 Let's take a closer look at the code.
 
 ```php
-Schema::create('users', function (Blueprint $table) {
+Schema::create('users', function (blueprint $table) {
     $table->id();
     $table->string('name');
     $table->string('email')->unique();
@@ -75,7 +75,7 @@ It's important to mention that if you do edit anything here or anywhere else, yo
 Let's look at the next block of code.
 
 ```php
-Schema::create('password_reset_tokens', function (Blueprint $table) {
+Schema::create('password_reset_tokens', function (blueprint $table) {
       $table->string('email')->primary();
       $table->string('token');
       $table->timestamp('created_at')->nullable();
@@ -93,7 +93,7 @@ The `email` column is the primary key and it is used to store the email address 
 Let's look at the last block of code.
 
 ```php
-Schema::create('sessions', function (Blueprint $table) {
+Schema::create('sessions', function (blueprint $table) {
     $table->string('id')->primary();
     $table->foreignId('user_id')->nullable()->index();
     $table->string('ip_address', 45)->nullable();

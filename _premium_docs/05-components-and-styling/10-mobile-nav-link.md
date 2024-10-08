@@ -1,4 +1,4 @@
-# Mobile Menu Link 
+# Mobile Menu Link
 
 So we have the regular menu all set. Let's take care of the links in the mobile menu. These links classes differ a bit, so we can't just use the NavLink component as is. What I want to do is pass in a prop of `:mobile="true"` if it is a mobile link and it will then apply the correct classes.
 
@@ -7,11 +7,7 @@ Before we do anything though, we need to be able to see the mobile menu. We can 
 Remove the `hidden` and `md:hidden` class from the following code in the `header.blade.php` file:
 
 ```html
-<nav
-  div
-  id="mobile-menu"
-  class="hidden md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
-></nav>
+<nav div id="mobile-menu" class="hidden md:hidden bg-marine-700 text-white mt-5 pb-4 space-y-2"></nav>
 ```
 
 Open the `components/nav-link.blade.php` file and add an extra prop for "mobile":
@@ -19,18 +15,19 @@ Open the `components/nav-link.blade.php` file and add an extra prop for "mobile"
 ```php
 @props(['url' => '/', 'active' => false, 'icon' => null, 'mobile' => false])
 ```
+
 Now add an if directive and add the mobile link classes:
 
 ```php
 @if($mobile)
-<a href="{{$url}}" class="block px-4 py-2 hover:bg-blue-700 {{$active ? 'text-yellow-500 font-bold' : ''}}">
+<a href="{{$url}}" class="block px-4 py-2 hover:bg-marine-700 {{$active ? 'text-pumpkin-550 font-bold' : ''}}">
     @if($icon)
     <i class="fa fa-{{$icon}}" mr-1"></i>
     @endif
     {{$slot}}
 </a>
 @else
-<a href="{{$url}}" class="text-white hover:underline py-2 {{$active ? 'text-yellow-500 font-bold' : ''}}">
+<a href="{{$url}}" class="text-white hover:underline py-2 {{$active ? 'text-pumpkin-550 font-bold' : ''}}">
     @if($icon)
     <i class="fa fa-{{$icon}}" mr-1"></i>
     @endif
@@ -57,8 +54,8 @@ The only difference between the mobile button link and the ButtonLink component 
 @props([
 'url' => '/',
 'icon' => null,
-'bgClass' => 'bg-yellow-500',
-'hoverClass' => 'hover:bg-yellow-600',
+'bgClass' => 'bg-pumpkin-550',
+'hoverClass' => 'hover:bg-pumpkin-600',
 'textClass' => 'text-black',
 'block' => false
 ])
@@ -82,10 +79,7 @@ Now the mobile menu should look the same. It is just using components for the li
 Now add the `hidden` and `md:hidden` class back to the mobile menu in the `header.blade.php` file:
 
 ```html
-<nav
-  id="mobile-menu"
-  class="hidden md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
-></nav>
+<nav id="mobile-menu" class="hidden md:hidden bg-marine-700 text-white mt-5 pb-4 space-y-2"></nav>
 ```
 
 In the next lesson, we will add the JavaScript to toggle the mobile menu as well as the image and css assets. We will also create the hero component.

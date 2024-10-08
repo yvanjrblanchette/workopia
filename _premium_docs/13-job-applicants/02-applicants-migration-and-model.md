@@ -16,7 +16,7 @@ Open the file `database/migrations/TIMESTAMP_create_applicants_table.php` and ad
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applicants', function (Blueprint $table) {
+        Schema::create('applicants', function (blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('job_id')->constrained('job_listings')->onDelete('cascade');

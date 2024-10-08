@@ -70,7 +70,7 @@ Let's start with the `register` method.
 // @desc  Show register form
 // @route GET /register
 public function register(): View {
-  return view('auth.register');
+  return view('register');
 }
 ```
 
@@ -78,7 +78,7 @@ For now we will just create the view with a a heading or something. Create a fol
 
 ```html
 <x-layout>
-  <h1>Register</h1>
+	<h1>Register</h1>
 </x-layout>
 ```
 
@@ -113,7 +113,7 @@ Let's start with the `login` method.
 // @desc  Show login form
 // @route GET /login
 public function login(): View {
-  return view('auth.login');
+  return view('login');
 }
 ```
 
@@ -121,7 +121,7 @@ In the `/resources/views/auth` folder, create a file called `login.blade.php` an
 
 ```html
 <x-layout>
-  <h1>Login</h1>
+	<h1>Login</h1>
 </x-layout>
 ```
 

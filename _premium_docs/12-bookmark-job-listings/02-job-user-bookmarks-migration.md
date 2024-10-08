@@ -62,13 +62,13 @@ Open the `/database/migrations/DATE_create_job_user_bookmarks_table.php` file an
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('job_user_bookmarks', function (Blueprint $table) {
+        Schema::create('job_user_bookmarks', function (blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('job_id')->constrained('job_listings')->onDelete('cascade');

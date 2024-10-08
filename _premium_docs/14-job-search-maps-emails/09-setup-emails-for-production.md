@@ -1,6 +1,6 @@
 # Setup Emails for Production
 
-Now that we know our email is working, we need to setup our email for production. We can still use Mailtrap for this. Go to https://mailtrap.io/home and click on "Star Sending" under "Email API/SMTP". It will ask for the domain you want to use. I have the domain `workopia.dev` registered at Namecheap. Use a domain that you own.
+Now that we know our email is working, we need to setup our email for production. We can still use Mailtrap for this. Go to https://mailtrap.io/home and click on "Star Sending" under "Email API/SMTP". It will ask for the domain you want to use. I have the domain `workscout.dev` registered at Namecheap. Use a domain that you own.
 
 You should see a screen like this:
 

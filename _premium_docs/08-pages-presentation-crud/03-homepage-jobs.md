@@ -17,7 +17,7 @@ public function index(): View
 {
     $jobs = Job::latest()->limit(6)->get();
 
-    return view('pages.home')->with('jobs', $jobs);
+    return view('home')->with('jobs', $jobs);
 }
 ```
 
@@ -27,20 +27,18 @@ Now open the `resources/views/pages/home.blade.php` file and add the wrapper div
 
 ```html
 <x-layout>
-  <h2 class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
-    Recent Jobs
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-    @forelse($jobs as $job)
-    <x-job-card :job="$job" />
-    @empty
-    <p>No jobs found</p>
-    @endforelse
-  </div>
-  <a href="{{ route('jobs.index') }}" class="block text-xl text-center">
-    <i class="fa fa-arrow-alt-circle-right"></i> Show All Jobs
-  </a>
-  <x-bottom-banner />
+	<h2 class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
+		Recent Jobs
+	</h2>
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+		@forelse($jobs as $job)
+		<x-job-card :job="$job" />
+		@empty
+		<p>No jobs found</p>
+		@endforelse
+	</div>
+	<a href="{{ route('jobs.index') }}" class="block text-xl text-center"> <i class="fa fa-arrow-alt-circle-right"></i> Show All Jobs </a>
+	<x-bottom-banner />
 </x-layout>
 ```
 

@@ -111,7 +111,7 @@ This controller has a single method `index` that returns the `home` view in a `p
 Create a new view file at `resources/views/pages/index.blade.php`. If you still have the `welcome.blade.php` file, you can rename and move that and delete everything in it. Add the following code to the file:
 
 ```html
-<h1>Welcome to Workopia</h1>
+<h1>Welcome to workscout</h1>
 <p>Find your dream job today</p>
 ```
 
@@ -126,6 +126,3 @@ Route::get('/', [HomeController::class, 'index']);
 ```
 
 Now when you visit the homepage, you should see the welcome message.
-
-
-

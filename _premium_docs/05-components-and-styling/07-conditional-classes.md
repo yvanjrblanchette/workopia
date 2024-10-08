@@ -42,26 +42,26 @@ I want to make the active or current link bold and yellow. Right now, the only l
 There are many ways to do conditional classes. We can add a ternary in the class attribute like so:
 
 ```php
-<a href="/" class="{{ request()->is('/') ? 'font-bold text-yellow-500' : '' }}">Home</a>
+<a href="/" class="{{ request()->is('/') ? 'font-bold text-pumpkin-550' : '' }}">Home</a>
 ```
 
 Here are all of the links:
 
 ```php
  <a href="{{ url('/') }}"
-    class="text-white hover:underline py-2 {{ request()->is('/') ? 'text-yellow-400 font-bold' : '' }}">Home</a>
+    class="text-white hover:underline py-2 {{ request()->is('/') ? 'text-pumpkin-550 font-bold' : '' }}">Home</a>
 <a href="{{ url('/jobs') }}"
-    class="text-white hover:underline py-2 {{ request()->is('jobs') ? 'text-yellow-400 font-bold' : '' }}">All
+    class="text-white hover:underline py-2 {{ request()->is('jobs') ? 'text-pumpkin-550 font-bold' : '' }}">All
     Jobs</a>
 <a href="{{ url('/jobs/saved') }}"
-    class="text-white hover:underline py-2 {{ request()->is('jobs/saved') ? 'text-yellow-400 font-bold' : '' }}">Saved
+    class="text-white hover:underline py-2 {{ request()->is('jobs/saved') ? 'text-pumpkin-550 font-bold' : '' }}">Saved
     Jobs</a>
 <a href="{{ url('/login') }}"
-    class="text-white hover:underline py-2 {{ request()->is('login') ? 'text-yellow-400 font-bold' : '' }}">Login</a>
+    class="text-white hover:underline py-2 {{ request()->is('login') ? 'text-pumpkin-550 font-bold' : '' }}">Login</a>
 <a href="{{ url('/register') }}"
-    class="text-white hover:underline py-2 {{ request()->is('register') ? 'text-yellow-400 font-bold' : '' }}">Register</a>
+    class="text-white hover:underline py-2 {{ request()->is('register') ? 'text-pumpkin-550 font-bold' : '' }}">Register</a>
 <a href="{{ url('/dashboard') }}"
-    class="text-white hover:underline py-2 {{ request()->is('dashboard') ? 'text-yellow-400 font-bold' : '' }}">
+    class="text-white hover:underline py-2 {{ request()->is('dashboard') ? 'text-pumpkin-550 font-bold' : '' }}">
     <i class="fa fa-gauge mr-1"></i> Dashboard
 </a>
 ```
@@ -75,32 +75,32 @@ We can also use the `@class` directive like so:
 ```php
  <a href="{{ url('/') }}" @class([
     'text-white hover:underline py-2' ,
-    'font-bold text-yellow-400'=>request()->is('/')
+    'font-bold text-pumpkin-550'=>request()->is('/')
     ])>Home</a>
 
 <a href="{{ url('/jobs') }}" @class([
     'text-white hover:underline py-2' ,
-    'font-bold text-yellow-400'=> request()->is('jobs')
+    'font-bold text-pumpkin-550'=> request()->is('jobs')
     ])>All Jobs</a>
 
 <a href="{{ url('/jobs/saved') }}" @class([
     'text-white hover:underline py-2' ,
-    'font-bold text-yellow-400'=>request()->is('jobs/saved')
+    'font-bold text-pumpkin-550'=>request()->is('jobs/saved')
     ])>Saved Jobs</a>
 
 <a href="{{ url('/login') }}" @class([
     'text-white hover:underline py-2' ,
-    'font-bold text-yellow-400'=> request()->is('login')
+    'font-bold text-pumpkin-550'=> request()->is('login')
     ])>Login</a>
 
 <a href="{{ url('/register') }}" @class([
     'text-white hover:underline py-2' ,
-    'font-bold text-yellow-400'=>request()->is('register')
+    'font-bold text-pumpkin-550'=>request()->is('register')
     ])>Register</a>
 
 <a href="{{ url('/dashboard') }}" @class([
     'text-white hover:underline py-2' ,
-    'font-bold text-yellow-400'=>request()->is('dashboard')
+    'font-bold text-pumpkin-550'=>request()->is('dashboard')
     ])>
     <i class="fa fa-gauge mr-1"></i> Dashboard
 </a>

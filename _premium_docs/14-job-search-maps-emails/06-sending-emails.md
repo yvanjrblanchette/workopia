@@ -8,7 +8,7 @@ Since we're building locally, we can't just simply send emails from Laravel. Mai
 
 Let's start by setting up Mailtrap. Go to [Mailtrap](https://mailtrap.io/) and sign up for an account. Once you are signed up, click on "Start Testing" under "Email Testing". This will allow us to test emails in our local environment.
 
-Once you do that, click on the "Add Inbox" button and give it a name. I will call mine "Workopia". You will then see your inbox. Click on that and where it says "Code Samples", click on PHP and choose "Laravel 9+" from the dropdown. This will give you the configuration that you need to add to your `.env` file. It will look something like this:
+Once you do that, click on the "Add Inbox" button and give it a name. I will call mine "workscout". You will then see your inbox. Click on that and where it says "Code Samples", click on PHP and choose "Laravel 9+" from the dropdown. This will give you the configuration that you need to add to your `.env` file. It will look something like this:
 
 ```bash
 MAIL_MAILER=smtp
@@ -20,7 +20,7 @@ MAIL_PASSWORD=********er495
 
 Up above click on the password and you will see an option to "Copy Password". Paste all of this in your `.env` file replacing the existing `MAIL_` variables.
 
-I am also going to change the MAIL_FROM_ADDRESS to `noreply@workopia.dev`. I actually have the domain `workopia.dev`. I would suggest using a domain that you own.
+I am also going to change the MAIL_FROM_ADDRESS to `noreply@workscout.dev`. I actually have the domain `workscout.dev`. I would suggest using a domain that you own.
 
 ## Mailables
 
@@ -61,15 +61,15 @@ Let's create a view for our email. Create a file at `resources/views/emails/job-
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Workopia Job Application</title>
-  </head>
+	<head>
+		<title>workscout Job Application</title>
+	</head>
 
-  <body>
-    <p>There has been a new job application to your Workopia listing</p>
+	<body>
+		<p>There has been a new job application to your workscout listing</p>
 
-    <p>Login to your Workopia account to view the application.</p>
-  </body>
+		<p>Login to your workscout account to view the application.</p>
+	</body>
 </html>
 ```
 

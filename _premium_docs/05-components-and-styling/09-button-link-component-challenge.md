@@ -6,8 +6,8 @@ This component should get passed in the following props:
 
 - url - URL the button link goes to
 - icon - Optional icon
-- bgClass - Class for the background. Default: 'bg-yellow-500'
-- hoverClass - Class for the hover color. Default: 'hover:bg-yellow-600'
+- bgClass - Class for the background. Default: 'bg-pumpkin-550'
+- hoverClass - Class for the hover color. Default: 'hover:bg-pumpkin-600'
 - textClass - Class for the text color. Default: 'text-black'
 
 When you embed the button link component, it should look like this:
@@ -33,8 +33,8 @@ Let's add the props at the top of the `views/components/button-link.blade.php` f
 @props([
 'url' => '/',
 'icon' => null,
-'bgClass' => 'bg-yellow-500',
-'hoverClass' => 'hover:bg-yellow-600',
+'bgClass' => 'bg-pumpkin-550',
+'hoverClass' => 'hover:bg-pumpkin-600',
 'textClass' => 'text-black'
 ])
 ```
@@ -60,4 +60,5 @@ In the `views/components/header.blade.php` file, replace the create job link wit
 ```
 
 That's it for our nav links. We will get to the mobile nav links in the next lesson.
+
 </details>

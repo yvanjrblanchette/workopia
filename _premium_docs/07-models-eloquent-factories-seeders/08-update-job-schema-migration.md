@@ -54,7 +54,7 @@ Open the new migration file and add the following code to the `up` method to add
     DB::table('job_listings')->truncate();
 
     // Modify the table schema
-   Schema::table('job_listings', function (Blueprint $table) {
+   Schema::table('job_listings', function (blueprint $table) {
       $table->integer('salary');
       $table->string('tags')->nullable();
       $table->enum('job_type', ['Full-Time', 'Part-Time', 'Contract', 'Temporary', 'Internship', 'Volunteer', 'On-Call'])->default('Full-Time');
@@ -86,7 +86,7 @@ For the down, we will just drop all of the columns we added in the `up` method. 
 ```php
  public function down(): void
 {
-    Schema::table('job_listings', function (Blueprint $table) {
+    Schema::table('job_listings', function (blueprint $table) {
         $table->dropColumn(['salary', 'tags', 'job_type', 'remote', 'requirements', 'benefits', 'address', 'city', 'state', 'zipcode', 'contact_email', 'contact_phone', 'company_name', 'company_description', 'company_logo', 'company_website']);
     });
 }

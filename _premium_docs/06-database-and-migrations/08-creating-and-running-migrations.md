@@ -18,7 +18,7 @@ This will create a migration file in the `database/migrations` folder with the t
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -28,7 +28,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_listings', function (Blueprint $table) {
+        Schema::create('job_listings', function (blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -82,7 +82,7 @@ Let's add the fields to the migration file in the `up` method:
 ```php
 public function up(): void
 {
-    Schema::create('job_listings', function (Blueprint $table) {
+    Schema::create('job_listings', function (blueprint $table) {
         $table->id();
         $table->string('title');
         $table->text('description');
